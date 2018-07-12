@@ -281,3 +281,28 @@ export async function pressTimes( key, count ) {
 export async function clearLocalStorage() {
 	await page.evaluate( () => window.localStorage.clear() );
 }
+
+/**
+ * Visit a published post
+ *
+ * // @return {p} page
+ */
+export async function visitPublishedPage() {
+	await publishPost();
+
+	await page.waitForSelector( '.notice-success a' );
+	return page.click( '.notice-success a' );
+}
+
+/**
+ * Type text into the editor
+ *
+ * @param {string?} text Text string to enter into the default block appender.
+ *
+ * @return {Promise} Promise resolving when string has been typed.
+ */
+export async function typeIntoEditor( text = 'Lorum ipsum...' ) {
+	await page.click( '.editor-default-block-appender' );
+
+	return page.keyboard.type( text );
+}
