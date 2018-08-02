@@ -166,15 +166,22 @@
 
 // Tabs, Inputs, Square buttons
 @mixin input-style__neutral() {
-	outline-offset: -1px;
+	//outline-offset: -1px;
 	box-shadow: 0 0 0 transparent;
-	transition: box-shadow .05s linear;
+	transition: box-shadow .1s linear;
+	border-radius: $radius-roundrect;
+	border: $border-width solid $dark-gray-150;
 }
 
 @mixin input-style__focus() {
 	color: $dark-gray-900;
-	outline: 1px solid $blue-medium-600;
-	box-shadow: 0 0 0 2px $blue-medium-200;
+	//outline: 1px solid $blue-medium-600;
+	border-color: $blue-medium-500;
+	box-shadow: 0 0 0 1px $blue-medium-500;
+
+	// Windows High Contrast mode will show this outline, but not the box-shadow
+	outline: 2px solid transparent;
+	outline-offset: -2px;
 }
 
 // Square buttons
