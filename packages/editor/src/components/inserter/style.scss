@@ -98,7 +98,7 @@ $block-inserter-search-height: 38px;
 	}
 
 	// Don't show the top border on the first panel, let the Search border be the border.
-	.components-panel__body:first-child {
+	[role="presentation"] + .components-panel__body {
 		border-top: none;
 	}
 
