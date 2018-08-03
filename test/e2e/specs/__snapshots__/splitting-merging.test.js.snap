@@ -16,6 +16,8 @@ exports[`splitting and merging blocks Should merge into inline boundary position
 <!-- /wp:paragraph -->"
 `;
 
+exports[`splitting and merging blocks Should remove empty paragraph block on backspace 1`] = `""`;
+
 exports[`splitting and merging blocks Should split and merge paragraph blocks using Enter and Backspace 1`] = `
 "<!-- wp:paragraph -->
 <p>First</p>

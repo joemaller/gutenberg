@@ -74,6 +74,8 @@ describe( 'splitting and merging blocks', () => {
 	it( 'Should delete wholly-selected block contents', async () => {
 		// Regression Test: When all of a paragraph is selected, pressing
 		// backspace should delete the contents, not merge to previous.
+		//
+		// See: https://github.com/WordPress/gutenberg/issues/8268
 		await insertBlock( 'Paragraph' );
 		await page.keyboard.type( 'Foo' );
 		await insertBlock( 'Paragraph' );
@@ -85,6 +87,17 @@ describe( 'splitting and merging blocks', () => {
 		await page.keyboard.up( 'Shift' );
 
 		// Delete selection.
+		await page.keyboard.press( 'Backspace' );
+
+		expect( await getEditedPostContent() ).toMatchSnapshot();
+	} );
+
+	it( 'Should remove empty paragraph block on backspace', async () => {
+		// Regression Test: In a sole empty paragraph, pressing backspace
+		// should remove the block.
+		//
+		// See: https://github.com/WordPress/gutenberg/pull/8306
+		await insertBlock( 'Paragraph' );
 		await page.keyboard.press( 'Backspace' );
 
 		expect( await getEditedPostContent() ).toMatchSnapshot();
