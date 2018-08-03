@@ -7,8 +7,10 @@
 	}
 
 	// Floats get an extra wrapping aside element, so the figure becomes a child.
+	// Resized images that are not floated, need the caption trick too.
 	.alignleft,
-	.alignright {
+	.alignright,
+	&.is-resized {
 		display: table;
 		margin: 0;
 

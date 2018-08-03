@@ -117,10 +117,22 @@
 			display: table;
 		}
 
-		// This maps to the figure on the frontend.
+		// This maps to the figcaption on the frontend.
 		.editor-rich-text {
 			display: table-caption;
 			caption-side: bottom;
 		}
+	}
+}
+
+// This is similar to above but for resized unfloated images only, where the markup is different.
+[data-type="core/image"] .editor-block-list__block-edit figure.is-resized {
+	margin: 0;
+	display: table;
+
+	// This maps to the figcaption on the frontend.
+	.editor-rich-text {
+		display: table-caption;
+		caption-side: bottom;
 	}
 }
